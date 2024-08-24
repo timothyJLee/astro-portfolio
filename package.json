@@ -1,0 +1,27 @@
+{
+  "name": "static-portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.2",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.13.4",
+    "astro-navbar": "^2.3.3",
+    "embla-carousel": "^8.2.0",
+    "keen-slider": "^6.8.6",
+    "swiper": "^11.1.10",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10"
+  }
+}

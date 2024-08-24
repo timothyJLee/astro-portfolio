@@ -1,0 +1,104 @@
+
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Card from '../components/Card.astro';
+import Carousel from '../components/Carousel.astro';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/free-mode";
+import "swiper/css/thumbs";
+//import '../styles/swiper.css'
+
+const cardItems = [
+{
+    title : "Pokedex React SPA",
+    body: "Front end Pokedex using the PokéAPI, React, HTML, Styled Components.  Styled components provide readable and accessible implementation of CSS within the component workflow of React.  PokéAPI data properly read into app using React Hooks, Async/Await, and Axios for automatic error handling and caching.  Using React syntax for automatically destructuring API data fetched by Axios and parsing into JSON objects.  Utilizing components for dynamic handling of HTML elements such as buttons and inputs.  Utilizing inbuilt and custom Hooks for determining when application should handle rerenders of specific elements, data, or styles.",
+    img: "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png",
+    href: "https://github.com/timothyJLee/pokedex-react",
+},
+{
+    title: "E-commerce",
+    body: "E-commerce website built with Nextjs, Lucia, and Stripe",
+    img: "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png",
+    href: "",
+},
+{
+    title: "Static Business Page",
+    body: "Static Web Sites for any business.  Features that solve all needs.",
+    img: "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png",
+    href: "",
+},
+{
+    title: "LeetCode",
+    body: "History of LeetCode challenges.",
+    img: "https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png",
+    href: "https://leetcode.com/u/chronosage/",
+},
+{
+    title: "Github",
+    body: "Repository of projects I have worked on.",
+    img: "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png",
+    href: "https://github.com/timothyJLee",
+},];
+---
+
+<Layout title="Gishgok Nadé kenak">
+	<main class=" bg-sky-600">
+		<Navbar client:load />
+        <div class="relative rounded-lg bg-contain bg-repeat p-12 text-center" 
+            style="background-image: url(../../turtleShellAbstract.webp);" >
+            <div class="swiper lg:w-3/4 ">
+                <div class="swiper-wrapper">
+                    {cardItems.map(item => (
+                        <div class="swiper-slide">
+                            <Carousel client:load
+ href={item.href} title={item.title} body={item.body} img={item.img} />
+                        </div>
+                    ))}
+                </div>
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- If we need scrollbar -->
+                <div class="swiper-scrollbar"></div>
+            </div>
+            
+            <script >
+                //make carousel
+              import Swiper from 'swiper';
+              import { Navigation, FreeMode, Thumbs, Mousewheel, Autoplay, Pagination } from "swiper/modules";
+
+              const swiper = new Swiper('.swiper', {
+                modules: [Navigation, Thumbs, Mousewheel, Autoplay],
+        spaceBetween: 4,
+        slidesPerView: 1,
+        mousewheel: true,
+        freeMode: true,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+          delay: 9000,
+        },
+        setWrapperSize: true,
+    });
+            </script>
+
+        <div class="grid grid-cols-3 gap-3">
+            {cardItems.map(item => (
+                <Card href={item.href} title={item.title} img={item.img} />
+            ))}
+        </div>
+
+        </div>        
+        <Footer />
+    </main>
+</Layout>
+

@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ZigZag from '../components/ZigZag.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const zigzagItems = [
+    {
+		href: "#",
+        title: "About Me...",
+        body: "I am a Computer Scientist that studies Physics and creates Art in my free time.",
+		img: "../../regaliaPic.jpg",
+    },
+    {
+		href: "#",
+        title: "Art...",
+        body: "My personal experience using art as a form of self expression and telling my story has informed the importance I put on displaying an artist's true vision as faithfully as possible.",
+		img: "../../turtleSimplified.svg",
+    },
+	{
+		href: "#",
+        title: "Science...",
+        body: " A University education gathering and manipulating data in Computer and Scientific fields has prepared me to ensure the safety and accuracy of your data as it is stored and manipulated across a full stack.",
+		img: "../../particleAcc.jpg",
+    },
+	{
+		href: "#",
+        title: "Culture...",
+        body: "",
+		img: "../../powWow.jpg",
+    },
+];
+
+let zigzagBool:boolean = true;
+const zigOrZag = () => {
+	if(zigzagBool == true){
+		zigzagBool = false;
+		return true;
+	}else{
+		zigzagBool = true;
+		return false;
+	}
+}
+---
+
+
+<Layout title="Gishgok Nadé kenak">
+	<main class="bg-sky-600">
+		<Navbar client:load />
+
+		<header class="mb-15 mt-0">
+			<div class="w-full bg-center bg-cover"
+			  style="background-image: url(https://images.pexels.com/photos/2707756/pexels-photo-2707756.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);">
+			  <div class="flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50 py-12">
+				<div class="text-center">
+				  <div class="container px-4 mx-auto">
+					<div class="max-w-4xl mx-auto text-center">
+					  <span class="text-blue-700 font-semibold uppercase tracking-widest">Blue Shell</span>
+					  <h2 class="mt-8 mb-6 text-4xl lg:text-5xl font-bold text-gray-100">gishgok nadé mshiké kenak</h2>
+					  <p class="max-w-3xl mx-auto mb-10 text-lg text-gray-300">
+						"A good website is a shell that protects you and your clients from unwanted interactions"
+					  </p>
+					  <a class="inline-block w-full md:w-auto mb-4 md:mr-6 py-5 px-8 text-sm font-bold uppercase border-2 border-transparent bg-gray-200 rounded hover:bg-gray-100 text-blue-900 transition duration-200"
+						href="#">Get Started</a>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</header>
+
+		{zigzagItems.map(item => (
+			<ZigZag href={item.href} title={item.title} body={item.body} img={item.img} zigzag={zigOrZag()} />
+		))}
+
+		<Footer />
+	</main>
+</Layout>
+
