@@ -46,14 +46,14 @@ const cardItems = [
 
 <Layout title="Gishgok Nadé kenak">
 	<main class=" bg-sky-600">
-		<Navbar client:load />
+		<Navbar />
         <div class="relative rounded-lg bg-contain bg-repeat p-12 text-center" 
             style="background-image: url(../../turtleShellAbstract.webp);" >
             <div class="swiper lg:w-3/4 ">
                 <div class="swiper-wrapper">
                     {cardItems.map(item => (
                         <div class="swiper-slide">
-                            <Carousel client:load
+                            <Carousel
  href={item.href} title={item.title} body={item.body} img={item.img} />
                         </div>
                     ))}

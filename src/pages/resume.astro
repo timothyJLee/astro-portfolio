@@ -2,15 +2,408 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import LinksCentered from '../components/resume/LinksCentered.astro';
+import SchoolsCentered from '../components/resume/SchoolsCentered.astro';
+import ExperienceCentered from '../components/resume/ExperienceCentered.astro';
+
+
+const contactItems = [
+    {
+        name: "Github",
+        href: "https://github.com/timothyJLee",
+        icon: "",
+    },
+    {
+        name: "Linkedin",
+        href: "linkedin.com/in/timothyleecs",
+        icon: "",
+    },
+    {
+        name: "Portfolio",
+        href: "",
+        icon: "",
+    },
+    {
+        name: "Email",
+        body: "timothy.j.lee.cs@gmail.com",
+        href: "",
+        icon: "",
+    },
+    {
+        name: "Phone",
+        body: "2692679043",
+        href: "",
+        icon: "",
+    },
+];
+
+const educationItems = [
+    {
+        name: "Western Michigan University",
+        major: "Bachelor of Science: Physics",
+        dateGraduated: "ongoing.  Expected 2025",
+        course: [
+            {
+            courseName: "University Physics I",
+            courseNo: "2050",
+             },
+             {
+            courseName: "University Physics II",
+            courseNo: "2070",
+             },
+        ]             
+    },
+    {
+        name: "Western Michigan University",
+        major: "Bachelor of Science: Computer Science",
+        dateGraduated: "May 2015",
+        course: [
+            {
+            courseName: "Artificial Neural Systems",
+            courseNo: "5300",
+             },
+             {
+            courseName: "Statistics Using R",
+            courseNo: "2600",
+             },
+             {
+            courseName: "Systems Programming Concepts",
+            courseNo: "2240",
+             },
+             {
+            courseName: "Computational Thinking",
+            courseNo: "2100",
+             },
+        ]
+    },
+    {
+        name: "Kalamazoo Valley Community College",
+        major: "Associate of Arts",
+        dateGraduated: "May 2013",
+        course: [
+            {
+            courseName: "Advanced C# Programming",
+            courseNo: "237",
+             },
+             {
+            courseName: "Java Programming",
+            courseNo: "209",
+             },
+             {
+            courseName: "Visual Basic",
+            courseNo: "202",
+             },
+             {
+            courseName: "Web Page Coding",
+            courseNo: "170",
+             },
+             {
+            courseName: "Advanced Video Production",
+            courseNo: "271",
+             },
+             {
+            courseName: "Advanced Digital Photography",
+            courseNo: "270",
+             },
+             {
+            courseName: "Multimedia",
+            courseNo: "251",
+             },
+        ]
+    },
+];
+
+const experienceItems = [
+    {
+        name: "Software Engineer",
+        company: "Freelance",
+        dateStarted: "May 2016",
+        dateEnded: "Present",
+        location: "Remote",
+        duties: [
+            "Freelance Full Stack Web Development in MERN stack and in the past the LAMP Laravel.",
+            "",
+        ],
+    },
+    {
+        name: "Remote ESOL Teacher",
+        company: "GoGoKid",
+        dateStarted: "April 2015",
+        dateEnded: "September 2021",
+        location: "China, Remote",
+        duties: [
+            "Used modeling, TPR, and a variety of ESOL techniques in order to keep the classroom engaging and thought provoking.",
+            "Prepared teaching materials in an appropriate and organized manner for use during class time.",
+            "Charted students progress through the lessons by keeping digital records and providing written feedback for each class.",
+            "Ensured technical requirements for a successful virtual learning environment were met on time, every time.",
+        ],
+    },
+    {
+        name: "Direct Support Staff",
+        company: "Residential Opportunities Inc",
+        dateStarted: "February 2008",
+        dateEnded: "April 2012",
+        location: "Kalamazoo, MI",
+        duties: [
+            "Responsible for the direct care and supervision of individuals with disabilities in various living situations. Assisted with personal care issues, transportation and appointments.",
+            "Implemented and completed documentation in order to record the successfulness of individual programs over time, such as progress reports for individuals, incident reports, and activity reports.",
+            "Distributed medication as prescribed and created a log on the effects for physician review.",
+            "Demonstrate professionalism by utilizing good judgment, being dependable and working autonomously for periods of time, while at others being part of a functional team.",
+        ],
+    },
+];
+
+const volunteerItems = [
+    {
+        name: "Volunteer",
+        company: "CARES",
+        dateStarted: "February 2017",
+        dateEnded: "August 2019",
+        location: "Kalamazoo, MI",
+        duties: [
+            "Coordinating with a team of volunteers and workers in the planning, publicizing, and running of charity events and fundraisers.",
+            "Reaching out to members of the community who may benefit from CARES services and giving them resources that may help.",
+            "Spreading CARES message and branding through the Mr. Friendly campaign by word of mouth, flyers, social media, and other advertising.",
+            "Contributing with putting up and tearing down booths at major events as well as setting up displays for donation gifts.",
+            "Performing duties related to running a booth at major events such as soliciting donations from event patrons as well as giving out information about CARES services and giveaways.",
+            "Promotes intersectionality by working with other local organizations and and event holders to ensure all members of the community are welcomed and represented.",
+            "Working within the non-profit framework to minimize transmission of HIV and improve the quality of life for those living with HIV.",
+        ],
+    },
+    {
+        name: "Volunteer",
+        company: "Mpowerment",
+        dateStarted: "February 2017",
+        dateEnded: "August 2019",
+        location: "Kalamazoo, MI",
+        duties: [
+            "Combining social, behavioral, and medical HIV prevention strategies for at risk populations of men.",
+            "Recruiting new members and incentivising them to stay long term through building community and personal rapport with local populations.",
+            "Securing funding for community outings by organizing fundraisers and volunteering with companies and corporations at major events.",
+            "Participating in weekly meetings to coordinate group plans and strategies as well as plan future events and outings.",
+            "Communicating and coordinating through electronic devices and various software and technology.",
+            "Filling out various paperwork and forms relating statistics and information gathered by the government to prove the efficiency and efficacy of the program.",
+        ],
+    },
+    {
+        name: "Volunteer",
+        company: "Benac for Congress Campaign",
+        dateStarted: "October 2017",
+        dateEnded: "August 2018",
+        location: "Kalamazoo, MI",
+        duties: [
+            "Reviewing information of potential voters in order to update and modernize the database.",
+            "Asking potential voters about their political preferences and what is important to them.",
+            "Informing of ways Benac would fight for the issues specifically important to that voter.",
+            "Giving information on future events and where more can be found on David Benac’s campaign for 6th District. ",
+            "Ask if there is a potential for donations or volunteering time phone banking or at a campaign event.",
+            "Promoting intersectionality within the campaign by striving for diversity and attempting to connect disparate parts of the community through outreach and working with local organizations.",
+            
+        ],
+    },
+];
+
+const skillItems = [
+    "nextjs","astro","react","typescript","html","css","tailwind","postgreSQL","git",
+    "BASH/CLI","vscode","adobe creative suite","blender",
+];
+
+const softSkillItems = [
+    "Ability to effeciently produce concise, organized, reports, labs, and memos",
+    "Able to break down project goals and present complex ideas to teams and individuals",
+];
+
+let zigzagBool:boolean = true;
+const zigOrZag = () => {
+	if(zigzagBool == true){
+		zigzagBool = false;
+		return true;
+	}else{
+		zigzagBool = true;
+		return false;
+	}
+}
 
 ---
 
 <Layout title="Gishgok Nadé kenak">
 	<main class="bg-sky-600">
 		<Navbar />
-        <div class="h-screen relative overflow-hidden rounded-lg bg-contain bg-no-repeat p-12 text-center" 
+        <div class="h-full relative overflow-hidden rounded-lg bg-contain bg-no-repeat p-12 text-center" 
         style="margin-top: 10px; background-image: url(../../turtleLogo.svg);" >
-        <p>Coming Soon...</p>
+        <section
+        class="p-3 my-auto mx-auto max-w-3xl bg-gray-100 rounded-2xl border-4 border-gray-700 sm:p-9 md:p-16 lg:mt-6 print:border-0 page print:max-w-letter print:max-h-letter print:mx-0 print:my-o xsm:p-8 print:bg-white md:max-w-letter md:h-letter lg:h-letter"
+      >
+        <!-- Name ---------------------------------------------------------------------------------------------------->
+        <header
+          class="inline-flex justify-between items-baseline mb-2 w-full align-top border-b-4 border-gray-300"
+        >
+          <section class="block">
+            <h1 class="mb-0 text-5xl font-bold text-gray-700">
+             Timothy Lee
+            </h1>
+            <!--Job Title--------------------------------------------------------------------------------------------------------->
+            <h2
+              class="m-0 ml-2 text-2xl font-semibold text-gray-700 leading-snugish"
+            >
+              Full Stack Web Development
+            </h2>
+          </section>
+          <!--   Initials Block         -->
+          <section
+            class="justify-between px-3 mt-0 mb-5 text-4xl font-black leading-none text-white bg-gray-700 initials-container print:bg-black"
+            style="padding-bottom: 1.5rem; padding-top: 1.5rem;"
+          >
+            <section class="text-center initial">T</section>
+            <section class="text-center initial">J</section>
+            <section class="text-center initial">L</section>
+          </section>
+        </header>
+
+        <!-- Column -------------------------------------------------------------------------------------------------->
+        <section
+          class="col-gap-8 print:col-count-2 print:h-letter-col-full col-fill-balance md:col-count-2 md:h-letter-col-full"
+        ><section class="flex-col">
+          <!-- Contact Information ------------------------------------------------------------------------------------->
+          <section class="pb-2 mt-4 mb-0 first:mt-0">
+            <!-- To keep in the same column -------------------------------------------------------------------------->
+            <!--contactItems-->
+            <section class="break-inside-avoid">
+                <section class="pb-4 mb-2 border-b-4 border-gray-300 break-inside-avoid">
+                     <ul class="pr-7 list-inside">   
+                         <div>             
+                            {contactItems.map(item => (
+                                 <>
+                                        {(item.body == undefined) && <LinksCentered href={item.href} icon={item.icon} name={item.name} zigzag={zigOrZag()} />}                    
+                                        {(item.body !== undefined) && <LinksCentered href={item.href} icon={item.icon} body={item.body} name={item.name} zigzag={zigOrZag()} />}
+                                </>             
+                            ))}
+                        </div>		                            
+                     </ul>
+                </section>
+            </section>
+          </section> 
+
+          <!--Summary ---------------------------------------------------------------------------------------------------------->
+          <section class="pb-4 mt-0 border-b-4 border-gray-300 first:mt-0">
+            <!-- To keep in the same column -->
+            <section class="break-inside-avoid">
+              <h2
+                class="mb-2 text-xl font-bold tracking-widest text-gray-700 print:font-normal"
+              >
+                SUMMARY
+              </h2>
+
+              <section class="mb-2 break-inside-avoid">
+                <p class="mt-2 leading-normal text-gray-700 text-md">
+                    As a Computer Science graduate, I am looking forward to putting my new skills to work through helping build key aspects of growing companies. I love working on large, complex problems and will often spend time studying big, open source projects to figure out where I may best contribute given my current abilities. I use my extensive knowledge of back-end technologies to bring reliable structure to any web service. At the same time I can use my front-end experience to provide, dynamic, functional, and streamlined user interfaces in order to clearly display the purpose of the website. As a Computer Science graduate, I have experience managing complex projects in a variety of workflows within varying sized groups, as well as access to a sizable coding knowledge bank. Currently considering remote and hybrid opportunities.
+                </p>
+              </section>
+            </section>
+          </section>
+
+<!--Education -------------------------------------------------------------------------------------------------------->
+<section class="pb-0 mt-2 border-b-4 border-gray-300 first:mt-0 break-inside-avoid">
+    <!-- To keep in the same column -->
+    <section class="break-inside-avoid">
+        <h2
+            class="mb-2 text-lg font-bold tracking-widest text-gray-700 print:font-normal"
+        >
+            EDUCATION
+        </h2>
+        <!-- school --------------------------------------------------------------------------->
+        {educationItems.map(item => (
+            <>
+                <SchoolsCentered name={item.name} major={item.major} dateGraduated={item.dateGraduated} course={item.course} />                  
+           </>             
+       ))}
+
+            <!--Begin Skills ----------------------------------------------------------------------------------------------------->
+            <section class="pb-6 mt-0 mb-4 border-b-4 border-gray-300 first:mt-0 break-inside-avoid">
+              <!-- To keep in the same column -->
+                <section class="break-inside-avoid">
+                <h2
+                  class="mb-2 text-lg font-bold tracking-widest text-gray-700 print:font-normal">
+                  SKILLS
+                </h2>
+                <section class="mb-0 break-inside-avoid">
+                    <section class="mt-1 last:pb-1">
+						<ul class="flex flex-wrap -mb-1 font-bold leading-relaxed text-md -mr-1.6">
+                            {skillItems.map(item => (
+                                <li class="p-1.5 mb-1 leading-relaxed text-white bg-gray-800 mr-1.6 print:bg-white print:border-inset">
+                                    {item}
+                                </li>                        
+                            ))}
+                        </ul>
+                   </section>
+                </section>
+                </section>
+            </section>
+
+<!--Experience ------------------------------------------------------------------------------------------------------>
+<section class="pb-4 mt-4 border-b-4 border-gray-300 first:mt-0">
+    <!-- To keep in the same column ------------------------------------------------------------------------->
+    <section class="break-inside-avoid">
+        <h2 class="mb-2 text-xl font-black tracking-widest text-gray-800 print:font-normal">
+            EXPERIENCE
+        </h2>
+        {experienceItems.map((item, i, arr) => (
+            <>
+            {(arr.length-1 !== i) &&
+            <ExperienceCentered name={item.name}
+                                company={item.company}
+                                dateStarted={item.dateStarted}
+                                dateEnded={item.dateEnded}
+                                location={item.location}
+                                duties={item.duties} lastOne={false} />}
+            {(arr.length-1 == i) &&
+            <ExperienceCentered name={item.name}
+                                company={item.company}
+                                dateStarted={item.dateStarted}
+                                dateEnded={item.dateEnded}
+                                location={item.location}
+                                duties={item.duties} lastOne={true} />}
+            </>  
+                    
+        ))}
+    </section>
+</section>
+
+
+<!--Begin Volunteering ----------------------------------------------------------------------------------------------------->
+<section class="pb-4 mt-4 border-b-4 border-gray-300 first:mt-0">
+    
+<!-- To keep in the same column -->
+    <section class="break-inside-avoid">
+        <h2 class="mb-2 text-xl font-black tracking-widest text-gray-800 print:font-normal">
+            VOLUNTEERING
+        </h2>
+        {volunteerItems.map((item, i, arr) => (
+            <>
+            {(arr.length-1 !== i) &&
+            <ExperienceCentered name={item.name}
+                                company={item.company}
+                                dateStarted={item.dateStarted}
+                                dateEnded={item.dateEnded}
+                                location={item.location}
+                                duties={item.duties} lastOne={false} />}
+            {(arr.length-1 == i) &&
+            <ExperienceCentered name={item.name}
+                                company={item.company}
+                                dateStarted={item.dateStarted}
+                                dateEnded={item.dateEnded}
+                                location={item.location}
+                                duties={item.duties} lastOne={true} />}
+            </>  
+                    
+        ))}
+    </section>
+    </section>
+
+
+
+        <!-- end Column -->
+      </section>
         </div>
         <Footer />
     </main>

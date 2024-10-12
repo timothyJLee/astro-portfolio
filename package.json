@@ -15,7 +15,9 @@
     "astro": "^4.13.4",
     "astro-navbar": "^2.3.3",
     "embla-carousel": "^8.2.0",
+    "gsap": "^3.12.5",
     "keen-slider": "^6.8.6",
+    "node": "^22.7.0",
     "swiper": "^11.1.10",
     "typescript": "^5.5.4"
   },

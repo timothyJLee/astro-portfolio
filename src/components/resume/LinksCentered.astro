@@ -1,0 +1,30 @@
+---
+interface Props {
+	name: string;
+	href: string;
+	icon: string;
+    body?: string;
+	zigzag: boolean
+}
+
+const { href, name, icon, body, zigzag} = Astro.props;
+---
+ 
+
+            <li
+                class="mt-1 leading-normal text-gray-500 transition duration-100 ease-in hover:text-gray-700 text-md print:">
+                <a href={href} class="">
+                    <span class="mr-2 text-lg font-semibold text-gray-700 leading-snugish">
+                        {name}:
+                    </span>
+                    {href}
+                    {(body !== undefined) && body}
+                    <span class="inline-block font-normal text-gray-500 transition duration-100 ease-in group-hover:text-gray-700 print:text-black print:">
+                         ↗
+                    </span>
+                </a>
+            </li>
+
+      
+
+

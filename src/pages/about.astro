@@ -2,8 +2,45 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import '../layouts/embla-carousel.css'
+import ZigZag from '../components/ZigZag.astro';
 
+const zigzagItems = [
+    {
+		href: "#",
+        title: "About Me...",
+        body: "I am a Computer Scientist that studies Physics and creates Art in my free time.",
+		img: "../../regaliaPic.jpg",
+    },
+    {
+		href: "#",
+        title: "Art...",
+        body: "My personal experience using art as a form of self expression and telling my story has informed the importance I put on displaying an artist's true vision as faithfully as possible.",
+		img: "../../turtleSimplified.svg",
+    },
+	{
+		href: "#",
+        title: "Science...",
+        body: " A University education gathering and manipulating data in Computer and Scientific fields has prepared me to ensure the safety and accuracy of your data as it is stored and manipulated across a full stack.",
+		img: "../../particleAcc.jpg",
+    },
+	{
+		href: "#",
+        title: "Culture...",
+        body: "A Multi-Cultural, American background allows us to empathically meet diverse needs with the respect and sensitivity deserved.",
+		img: "../../powWow.jpg",
+    },
+];
+
+let zigzagBool:boolean = true;
+const zigOrZag = () => {
+	if(zigzagBool == true){
+		zigzagBool = false;
+		return true;
+	}else{
+		zigzagBool = true;
+		return false;
+	}
+}
 ---
 <Layout title="Gishgok Nadé kenak">
 	<main class="bg-sky-600">
@@ -11,6 +48,9 @@ import '../layouts/embla-carousel.css'
         <div class="h-screen relative overflow-hidden rounded-lg bg-contain bg-no-repeat p-12 text-center" 
         style="margin-top: 10px; background-image: url(../../turtleLogo.svg);" >
         <p>Coming Soon...</p>
+        {zigzagItems.map(item => (
+			<ZigZag href={item.href} title={item.title} body={item.body} img={item.img} zigzag={zigOrZag()} />
+		))}
         </div>
         <Footer />
     </main>

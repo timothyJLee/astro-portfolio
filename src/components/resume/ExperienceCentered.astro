@@ -1,0 +1,60 @@
+---
+interface Props {
+    name: string;
+    company: string;
+    dateStarted: string;
+    dateEnded: string;
+    location: string;
+    duties: string[];
+    lastOne: boolean
+}
+
+const {name, company, dateStarted, dateEnded, location, duties, lastOne} = Astro.props;
+
+---
+{lastOne &&
+<section class="break-inside-avoid">
+    <header>
+        <h3 class="font-semibold text-gray-800 text-md leading-snugish">
+            {name}
+        </h3>
+        <p class="text-sm leading-normal text-gray-500">
+            {dateStarted} &ndash; {dateEnded} | {company}
+        </p>
+    </header>
+    <ul class="pl-3 mt-2 font-normal text-gray-700 text-md leading-snugish">
+        {duties.map(item => (    // not working
+                <li>
+            <span class="text-gray-500 transform -translate-y-px select-none">
+                &rsaquo;
+            </span>  
+                {item}
+        </li>
+          ))}
+    </ul>
+</section>
+} 
+
+{!lastOne &&
+<section class="mb-2 border-b-2 border-gray-300 break-inside-avoid">
+    <header>
+        <h3 class="font-semibold text-gray-800 text-md leading-snugish">
+            {name}
+        </h3>
+        <p class="text-sm leading-normal text-gray-500">
+            {dateStarted} &ndash; {dateEnded} | {company}
+        </p>
+    </header>
+    <ul class="pl-3 mt-2 font-normal text-gray-700 text-md leading-snugish">
+        {duties.map(item => (    // not working
+                <li>
+            <span class="text-gray-500 transform -translate-y-px select-none">
+                &rsaquo;
+            </span>  
+                {item}
+        </li>
+          ))}
+    </ul>
+</section>
+}
+
