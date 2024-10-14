@@ -8,5 +8,7 @@ export default defineConfig({
     // Example: Allow writing nested CSS declarations
     // alongside Tailwind's syntax
     nesting: true,
+    site: 'https://timothyJLee.github.io',
+    base: 'astro-portfolio',
   })]
 });
